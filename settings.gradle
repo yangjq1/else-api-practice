@@ -1,0 +1,8 @@
+rootProject.name = 'else-api-practice'
+include 'demo-service'
+include 'demo-service-interface'
+include 'demo-service-db-migration'
+include 'demo-site'
+include 'demo-back-office'
+include 'demo-back-office-interface'
+

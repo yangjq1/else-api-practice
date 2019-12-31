@@ -1,0 +1,72 @@
+apply from: file("${rootDir}/gradle/project.gradle")
+
+subprojects {
+    group = 'core.demo'
+    version = '1.0.0'
+
+    repositories {
+        maven {
+            url 'https://neowu.github.io/maven-repo/'
+            content {
+                includeGroupByRegex 'core\\.framework.*'
+            }
+        }
+    }
+}
+
+def coreNGVersion = '7.3.0'
+def hsqlVersion = '2.5.0'
+
+configure(subprojects.findAll { it.name.endsWith('-db-migration') }) {
+    apply from: file("${rootDir}/gradle/db-migration.gradle")
+
+    dependencies {
+        runtimeOnly 'mysql:mysql-connector-java:8.0.17'
+    }
+}
+
+configure(subprojects.findAll { it.name.matches('.*-interface') }) {
+    dependencies {
+        implementation "core.framework:core-ng-api:${coreNGVersion}"
+        implementation 'org.mongodb:mongo-java-driver:3.11.2'
+        implementation "core.framework:core-ng-mongo:${coreNGVersion}"
+    }
+}
+
+configure([project(':demo-service'),
+           project(':demo-site'),
+           project(':demo-back-office')]) {
+    apply from: file("${rootDir}/gradle/app.gradle")
+    dependencies {
+        implementation "core.framework:core-ng:${coreNGVersion}"
+        testImplementation "core.framework:core-ng-test:${coreNGVersion}"
+    }
+}
+
+project(':demo-service') {
+    dependencies {
+        implementation project(':demo-service-interface')
+        runtimeOnly 'mysql:mysql-connector-java:8.0.17'
+        testRuntimeOnly "org.hsqldb:hsqldb:${hsqlVersion}"
+    }
+}
+
+project(':demo-back-office') {
+    dependencies {
+        implementation project(':demo-back-office-interface')
+        implementation project(':demo-service-interface')
+        implementation project(':demo-service')
+        runtimeOnly 'mysql:mysql-connector-java:8.0.17'
+        testRuntimeOnly "org.hsqldb:hsqldb:${hsqlVersion}"
+    }
+}
+
+project(':demo-back-office-interface') {
+    dependencies {
+        implementation project(':demo-service-interface')
+    }
+}
+
+
+
+
