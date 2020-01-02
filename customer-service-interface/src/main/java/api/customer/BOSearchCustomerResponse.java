@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Else
  */
-public class BOSearchCustomerAJAXResponse {
+public class BOSearchCustomerResponse {
     @Property(name = "total")
     public Integer total;
 

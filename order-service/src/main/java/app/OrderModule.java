@@ -1,9 +1,12 @@
 package app;
 
+import api.BOOrderWebService;
 import api.OrderWebService;
 import api.order.GetOrderResponse;
 import app.order.domain.Order;
+import app.order.service.BOOrderService;
 import app.order.service.OrderService;
+import app.order.web.BOOrderWebServiceImpl;
 import app.order.web.OrderWebServiceImpl;
 import core.framework.module.Module;
 
@@ -19,8 +22,9 @@ public class OrderModule extends Module {
         db().repository(Order.class);
 
         bind(OrderService.class);
+        bind(BOOrderService.class);
 
         api().service(OrderWebService.class,bind(OrderWebServiceImpl.class));
-        api().client(OrderWebService.class, requiredProperty("app.OrderWebService.URL"));
+        api().service(BOOrderWebService.class,bind(BOOrderWebServiceImpl.class));
     }
 }

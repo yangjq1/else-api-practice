@@ -78,6 +78,13 @@ project(':customer-service-interface') {
     }
 }
 
+project(':back-office-interface') {
+    dependencies {
+        implementation project(':order-service-interface')
+        implementation project(':customer-service-interface')
+    }
+}
+
 
 
 

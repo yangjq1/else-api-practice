@@ -6,7 +6,7 @@ import core.framework.api.validate.NotBlank;
 /**
  * @author Else
  */
-public class BOUpdateOrderAJAXRequest {
+public class BOUpdateOrderRequest {
     @NotBlank
     @Property(name = "description")
     public String description;

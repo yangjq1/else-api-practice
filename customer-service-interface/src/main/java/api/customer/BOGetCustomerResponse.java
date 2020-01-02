@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author Else
  */
-public class BOGetCustomerAJAXResponse {
+public class BOGetCustomerResponse {
     @NotNull
     @Property(name = "id")
     public Long id;

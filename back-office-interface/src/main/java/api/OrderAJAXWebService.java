@@ -1,12 +1,12 @@
 package api;
 
-import api.order.CreateOrderRequest;
-import api.order.CreateOrderResponse;
-import api.order.GetOrderResponse;
-import api.order.SearchOrderRequest;
-import api.order.SearchOrderResponse;
-import api.order.UpdateOrderRequest;
-import api.order.UpdateOrderResponse;
+import api.order.BOCreateOrderRequest;
+import api.order.BOCreateOrderResponse;
+import api.order.BOGetOrderResponse;
+import api.order.BOSearchOrderRequest;
+import api.order.BOSearchOrderResponse;
+import api.order.BOUpdateOrderRequest;
+import api.order.BOUpdateOrderResponse;
 import core.framework.api.http.HTTPStatus;
 import core.framework.api.web.service.DELETE;
 import core.framework.api.web.service.GET;
@@ -19,25 +19,26 @@ import core.framework.api.web.service.ResponseStatus;
 /**
  * @author Else
  */
-public interface OrderWebService {
+public interface OrderAJAXWebService {
     @GET
     @Path("/ajax/order/:id")
-    GetOrderResponse get(@PathParam("id") Long id);
+    BOGetOrderResponse get(@PathParam("id") Long id);
 
     @PUT
     @Path("/ajax/order")
-    SearchOrderResponse search(SearchOrderRequest request);
+    BOSearchOrderResponse search(BOSearchOrderRequest request);
 
     @DELETE
     @Path("/ajax/order/:id")
+    @ResponseStatus(HTTPStatus.NO_CONTENT)
     void delete(@PathParam("id") Long id);
 
     @POST
     @Path("/ajax/order")
     @ResponseStatus(HTTPStatus.CREATED)
-    CreateOrderResponse create(CreateOrderRequest request);
+    BOCreateOrderResponse create(BOCreateOrderRequest request);
 
     @PUT
     @Path("/ajax/order/:id")
-    UpdateOrderResponse update(@PathParam("id") Long id, UpdateOrderRequest request);
+    BOUpdateOrderResponse update(@PathParam("id") Long id, BOUpdateOrderRequest request);
 }

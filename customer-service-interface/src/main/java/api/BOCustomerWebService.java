@@ -1,5 +1,12 @@
 package api;
 
+import api.customer.BOCreateCustomerRequest;
+import api.customer.BOCreateCustomerResponse;
+import api.customer.BOGetCustomerResponse;
+import api.customer.BOSearchCustomerRequest;
+import api.customer.BOSearchCustomerResponse;
+import api.customer.BOUpdateCustomerRequest;
+import api.customer.BOUpdateCustomerResponse;
 import api.customer.CreateCustomerRequest;
 import api.customer.CreateCustomerResponse;
 import api.customer.GetCustomerResponse;
@@ -19,26 +26,26 @@ import core.framework.api.web.service.ResponseStatus;
 /**
  * @author Else
  */
-public interface CustomerWebService {
+public interface BOCustomerWebService {
 
     @GET
-    @Path("/customer/:id")
-    GetCustomerResponse get(@PathParam("id") Long id);
+    @Path("/bo/customer/:id")
+    BOGetCustomerResponse get(@PathParam("id") Long id);
 
     @PUT
-    @Path("/customer")
-    SearchCustomerResponse search(SearchCustomerRequest request);
+    @Path("/bo/customer")
+    BOSearchCustomerResponse search(BOSearchCustomerRequest request);
 
     @DELETE
-    @Path("/customer/:id")
+    @Path("/bo/customer/:id")
     void delete(@PathParam("id") Long id);
 
     @POST
-    @Path("/customer")
+    @Path("/bo/customer")
     @ResponseStatus(HTTPStatus.CREATED)
-    CreateCustomerResponse create(CreateCustomerRequest request);
+    BOCreateCustomerResponse create(BOCreateCustomerRequest request);
 
     @PUT
-    @Path("/customer/:id")
-    UpdateCustomerResponse update(@PathParam("id") Long id, UpdateCustomerRequest request);
+    @Path("/bo/customer/:id")
+    BOUpdateCustomerResponse update(@PathParam("id") Long id, BOUpdateCustomerRequest request);
 }

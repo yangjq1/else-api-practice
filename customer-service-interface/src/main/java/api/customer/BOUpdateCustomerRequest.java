@@ -7,7 +7,7 @@ import core.framework.api.validate.NotNull;
 /**
  * @author Else
  */
-public class BOUpdateCustomerAJAXRequest {
+public class BOUpdateCustomerRequest {
     @NotNull
     @NotBlank
     @Property(name = "first_name")

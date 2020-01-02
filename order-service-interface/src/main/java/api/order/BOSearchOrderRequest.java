@@ -6,7 +6,7 @@ import core.framework.api.web.service.QueryParam;
 /**
  * @author Else
  */
-public class BOSearchOrderAJAXRequest {
+public class BOSearchOrderRequest {
     @QueryParam(name = "customer_id")
     @Property(name = "customer_id")
     public Long customerId;

@@ -5,7 +5,7 @@ import core.framework.api.json.Property;
 /**
  * @author Else
  */
-public class BOUpdateOrderAJAXResponse {
+public class BOUpdateOrderResponse {
     @Property(name = "description")
     public String description;
 }
