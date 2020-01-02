@@ -1,7 +1,7 @@
 package app;
 
-import api.BOOrderWebService;
-import api.OrderAJAXWebService;
+import app.api.BOOrderWebService;
+import app.api.OrderAJAXWebService;
 import app.order.service.OrderService;
 import app.order.web.OrderWebServiceImpl;
 import core.framework.module.Module;

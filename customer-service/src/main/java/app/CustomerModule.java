@@ -1,14 +1,14 @@
 package app;
 
-import api.BOCustomerWebService;
-import api.BOOrderWebService;
-import api.CustomerWebService;
-import api.OrderWebService;
-import app.customer.domain.Customer;
-import app.customer.service.BOCustomerService;
-import app.customer.service.CustomerService;
-import app.customer.web.BOCustomerWebServiceImpl;
-import app.customer.web.CustomerWebServiceImpl;
+import app.api.BOCustomerWebService;
+import app.api.BOOrderWebService;
+import app.api.CustomerWebService;
+import app.api.OrderWebService;
+import app.domain.Customer;
+import app.service.BOCustomerService;
+import app.service.CustomerService;
+import app.web.BOCustomerWebServiceImpl;
+import app.web.CustomerWebServiceImpl;
 import core.framework.module.Module;
 
 /**

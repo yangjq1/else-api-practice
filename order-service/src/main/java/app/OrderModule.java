@@ -1,8 +1,8 @@
 package app;
 
-import api.BOOrderWebService;
-import api.OrderWebService;
-import api.order.GetOrderResponse;
+import app.api.BOOrderWebService;
+import app.api.OrderWebService;
+import app.api.order.GetOrderResponse;
 import app.order.domain.Order;
 import app.order.service.BOOrderService;
 import app.order.service.OrderService;

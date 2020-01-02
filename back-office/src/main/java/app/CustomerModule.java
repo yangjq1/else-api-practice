@@ -1,13 +1,10 @@
 package app;
 
-import api.BOCustomerWebService;
-import api.BOOrderWebService;
-import api.CustomerAJAXWebService;
-import api.CustomerWebService;
-import api.OrderAJAXWebService;
-import api.OrderWebService;
-import app.customer.service.CustomerService;
-import app.customer.web.CustomersAJAXWebServiceImpl;
+import app.api.BOCustomerWebService;
+import app.api.CustomerAJAXWebService;
+import app.api.OrderAJAXWebService;
+import app.service.CustomerService;
+import app.web.CustomersAJAXWebServiceImpl;
 import core.framework.module.Module;
 
 /**
