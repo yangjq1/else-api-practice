@@ -1,7 +1,6 @@
 package app.customer.service;
 
 import app.api.BOCustomerWebService;
-import app.api.OrderAJAXWebService;
 import app.api.customer.BOCreateCustomerRequest;
 import app.api.customer.BOCreateCustomerResponse;
 import app.api.customer.BOGetCustomerResponse;
