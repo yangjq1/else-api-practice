@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Else
  */
-public class SearchOrderResponse {
+public class SearchOrderAJAXResponse {
     @Property(name = "orders")
     public List<Order> orders;
 

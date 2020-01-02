@@ -4,16 +4,10 @@ import core.framework.api.json.Property;
 import core.framework.api.validate.NotBlank;
 import core.framework.api.validate.NotNull;
 
-import java.time.LocalDateTime;
-
 /**
  * @author Else
  */
-public class GetCustomerResponse {
-    @NotNull
-    @Property(name = "id")
-    public Long id;
-
+public class CreateCustomerAJAXRequest {
     @NotNull
     @NotBlank
     @Property(name = "email")
@@ -27,9 +21,4 @@ public class GetCustomerResponse {
     @NotBlank
     @Property(name = "last_name")
     public String lastName;
-
-    @NotNull
-    @Property(name = "updated_time")
-    public LocalDateTime updatedTime;
-
 }

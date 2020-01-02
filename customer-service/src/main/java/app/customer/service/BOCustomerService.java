@@ -1,14 +1,12 @@
-package app.service;
+package app.customer.service;
 
-import app.api.OrderWebService;
-import app.api.customer.CreateCustomerRequest;
-import app.api.customer.CreateCustomerResponse;
-import app.api.customer.GetCustomerResponse;
-import app.api.customer.SearchCustomerRequest;
-import app.api.customer.SearchCustomerResponse;
-import app.api.customer.UpdateCustomerRequest;
-import app.api.customer.UpdateCustomerResponse;
-import app.api.order.SearchOrderRequest;
+import app.api.customer.BOCreateCustomerRequest;
+import app.api.customer.BOCreateCustomerResponse;
+import app.api.customer.BOGetCustomerResponse;
+import app.api.customer.BOSearchCustomerRequest;
+import app.api.customer.BOSearchCustomerResponse;
+import app.api.customer.BOUpdateCustomerRequest;
+import app.api.customer.BOUpdateCustomerResponse;
 import app.domain.Customer;
 import app.domain.CustomerStatus;
 import core.framework.db.Query;
@@ -25,14 +23,12 @@ import java.util.stream.Collectors;
 /**
  * @author Else
  */
-public class CustomerService {
+public class BOCustomerService {
     @Inject
     Repository<Customer> customerRepository;
-    @Inject
-    OrderWebService orderWebService;
 
-    public SearchCustomerResponse search(SearchCustomerRequest request) {
-        SearchCustomerResponse response = new SearchCustomerResponse();
+    public BOSearchCustomerResponse search(BOSearchCustomerRequest request) {
+        BOSearchCustomerResponse response = new BOSearchCustomerResponse();
         Query<Customer> query = customerRepository.select();
         query.skip(request.skip);
         query.limit(request.limit);
@@ -46,7 +42,7 @@ public class CustomerService {
             query.where("last_name like ?", Strings.format("%{}%", request.lastName));
         }
         response.customers = query.fetch().stream().map(customer -> {
-            SearchCustomerResponse.Customer c = new SearchCustomerResponse.Customer();
+            BOSearchCustomerResponse.Customer c = new BOSearchCustomerResponse.Customer();
             c.id = customer.id;
             c.email = customer.email;
             c.firstName = customer.firstName;
@@ -59,22 +55,19 @@ public class CustomerService {
     }
 
 
-    public GetCustomerResponse get(Long id) {
+    public BOGetCustomerResponse get(Long id) {
         Customer customer = customerRepository.get(id).orElseThrow(() -> new NotFoundException("customer not found,id=" + id));
-        GetCustomerResponse response = new GetCustomerResponse();
+        BOGetCustomerResponse response = new BOGetCustomerResponse();
         response.email = customer.email;
         response.firstName = customer.firstName;
         response.lastName = customer.lastName;
         response.id = customer.id;
         response.updatedTime = customer.updatedTime;
 
-        SearchOrderRequest request = new SearchOrderRequest();
-        request.customerId = id;
-        response.orders = orderWebService.search(request).orders;
         return response;
     }
 
-    public CreateCustomerResponse create(CreateCustomerRequest request) {
+    public BOCreateCustomerResponse create(BOCreateCustomerRequest request) {
         Optional<Customer> dbCustomer = customerRepository.selectOne("email = ?", request.email);
         if (dbCustomer.isPresent()) {
             throw new ConflictException("customer already exists, email=" + request.email);
@@ -88,7 +81,7 @@ public class CustomerService {
         customer.updatedTime = LocalDateTime.now();
         customer.id = customerRepository.insert(customer).orElseThrow();
 
-        CreateCustomerResponse response = new CreateCustomerResponse();
+        BOCreateCustomerResponse response = new BOCreateCustomerResponse();
         response.id = customer.id;
         response.email = customer.email;
         response.firstName = customer.firstName;
@@ -97,14 +90,14 @@ public class CustomerService {
         return response;
     }
 
-    public UpdateCustomerResponse update(Long id, UpdateCustomerRequest request) {
+    public BOUpdateCustomerResponse update(Long id, BOUpdateCustomerRequest request) {
         Customer customer = customerRepository.get(id).orElseThrow(() -> new NotFoundException("customer not found,id=" + id));
         customer.updatedTime = LocalDateTime.now();
         customer.lastName = request.lastName;
         customer.firstName = request.firstName;
         customerRepository.partialUpdate(customer);
 
-        UpdateCustomerResponse response = new UpdateCustomerResponse();
+        BOUpdateCustomerResponse response = new BOUpdateCustomerResponse();
         response.email = customer.email;
         response.firstName = customer.firstName;
         response.lastName = customer.lastName;

@@ -1,22 +1,23 @@
-package app.web;
+package app.customer.web;
 
-import app.api.CustomerAJAXWebService;
+import app.api.BOCustomerWebService;
+import app.api.customer.BOCreateCustomerRequest;
 import app.api.customer.BOCreateCustomerResponse;
 import app.api.customer.BOGetCustomerResponse;
-import app.api.customer.BOUpdateCustomerResponse;
-import app.api.customer.BOCreateCustomerRequest;
 import app.api.customer.BOSearchCustomerRequest;
 import app.api.customer.BOSearchCustomerResponse;
 import app.api.customer.BOUpdateCustomerRequest;
-import app.service.CustomerService;
+import app.api.customer.BOUpdateCustomerResponse;
+import app.customer.service.BOCustomerService;
 import core.framework.inject.Inject;
 
 /**
  * @author Else
  */
-public class CustomersAJAXWebServiceImpl implements CustomerAJAXWebService {
+public class BOCustomerWebServiceImpl implements BOCustomerWebService {
     @Inject
-    CustomerService customerService;
+    BOCustomerService customerService;
+
 
     @Override
     public BOGetCustomerResponse get(Long id) {
@@ -42,5 +43,4 @@ public class CustomersAJAXWebServiceImpl implements CustomerAJAXWebService {
     public BOUpdateCustomerResponse update(Long id, BOUpdateCustomerRequest request) {
         return customerService.update(id, request);
     }
-
 }

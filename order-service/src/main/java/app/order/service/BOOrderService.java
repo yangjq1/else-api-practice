@@ -37,7 +37,7 @@ public class BOOrderService {
         List<Order> orders = orderRepository.select("customer_id = ?", request.customerId);
 
         BOSearchOrderResponse response = new BOSearchOrderResponse();
-        response.orders = orders.stream().map(order->{
+        response.orders = orders.stream().map(order -> {
             BOSearchOrderResponse.Order o = new BOSearchOrderResponse.Order();
             o.id = order.id;
             o.createdTime = order.createdTime;

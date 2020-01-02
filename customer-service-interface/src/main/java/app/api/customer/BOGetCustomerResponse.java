@@ -5,7 +5,6 @@ import core.framework.api.validate.NotBlank;
 import core.framework.api.validate.NotNull;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @author Else
@@ -32,16 +31,4 @@ public class BOGetCustomerResponse {
     @NotNull
     @Property(name = "updated_time")
     public LocalDateTime updatedTime;
-
-    @Property(name = "orders")
-    public List<Order> orders;
-
-    public static class Order {
-        @Property(name = "id")
-        public Long id;
-
-        @Property(name = "description")
-        public String description;
-
-    }
 }

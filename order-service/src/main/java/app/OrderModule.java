@@ -16,15 +16,13 @@ import core.framework.module.Module;
 public class OrderModule extends Module {
     @Override
     protected void initialize() {
-
-
         db().view(GetOrderResponse.class);
         db().repository(Order.class);
 
         bind(OrderService.class);
         bind(BOOrderService.class);
 
-        api().service(OrderWebService.class,bind(OrderWebServiceImpl.class));
-        api().service(BOOrderWebService.class,bind(BOOrderWebServiceImpl.class));
+        api().service(OrderWebService.class, bind(OrderWebServiceImpl.class));
+        api().service(BOOrderWebService.class, bind(BOOrderWebServiceImpl.class));
     }
 }

@@ -9,11 +9,7 @@ import java.time.LocalDateTime;
 /**
  * @author Else
  */
-public class GetCustomerResponse {
-    @NotNull
-    @Property(name = "id")
-    public Long id;
-
+public class UpdateCustomerAJAXResponse {
     @NotNull
     @NotBlank
     @Property(name = "email")
@@ -31,5 +27,4 @@ public class GetCustomerResponse {
     @NotNull
     @Property(name = "updated_time")
     public LocalDateTime updatedTime;
-
 }

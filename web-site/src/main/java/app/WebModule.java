@@ -1,6 +1,6 @@
 package app;
 
-import app.web.HomeController;
+import app.customer.web.HomeController;
 import core.framework.module.Module;
 
 import static core.framework.http.HTTPMethod.GET;

@@ -41,6 +41,6 @@ public class OrderWebServiceImpl implements OrderWebService {
 
     @Override
     public UpdateOrderResponse update(Long id, UpdateOrderRequest request) {
-        return orderService.update(id,request);
+        return orderService.update(id, request);
     }
 }

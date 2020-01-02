@@ -41,6 +41,6 @@ public class BOOrderWebServiceImpl implements BOOrderWebService {
 
     @Override
     public BOUpdateOrderResponse update(Long id, BOUpdateOrderRequest request) {
-        return orderService.update(id,request);
+        return orderService.update(id, request);
     }
 }

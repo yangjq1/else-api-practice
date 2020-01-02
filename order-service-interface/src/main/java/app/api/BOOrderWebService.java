@@ -20,9 +20,9 @@ import core.framework.api.web.service.ResponseStatus;
  * @author Else
  */
 public interface BOOrderWebService {
-       @GET
+    @GET
     @Path("/bo/order/:id")
-       BOGetOrderResponse get(@PathParam("id") Long id);
+    BOGetOrderResponse get(@PathParam("id") Long id);
 
     @PUT
     @Path("/bo/order")
