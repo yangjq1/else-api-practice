@@ -25,7 +25,7 @@ public class OrderService {
 
 
     public GetOrderResponse get(Long id) {
-        Order order = orderRepository.get(id).orElseThrow(() -> new NotFoundException("customer not found,id=" + id));
+        Order order = orderRepository.get(id).orElseThrow(() -> new NotFoundException("order not found,id=" + id));
         GetOrderResponse response = new GetOrderResponse();
         response.createdTime = order.createdTime;
         response.description = order.description;
