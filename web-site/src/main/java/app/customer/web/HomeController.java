@@ -8,7 +8,6 @@ import core.framework.web.Response;
  */
 public class HomeController {
     public Response index(Request request) {
-        Response response = Response.html("/index.html", null, null);
-        return response;
+        return Response.html("/index.html", null, null);
     }
 }

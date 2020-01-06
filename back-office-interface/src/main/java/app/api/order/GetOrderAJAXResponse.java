@@ -17,6 +17,6 @@ public class GetOrderAJAXResponse {
     @Property(name = "created_time")
     public LocalDateTime createdTime;
 
-    @Property(name = "email")
-    public String email;
+    @Property(name = "customer_id")
+    public Long customerId;
 }

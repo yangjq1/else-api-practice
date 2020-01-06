@@ -34,7 +34,7 @@ public class OrderService {
         response.createdTime = boResponse.createdTime;
         response.description = boResponse.description;
         response.id = boResponse.id;
-        response.email = boResponse.email;
+        response.customerId = boResponse.customerId;
         return response;
     }
 

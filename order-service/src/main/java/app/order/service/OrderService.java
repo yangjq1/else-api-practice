@@ -8,7 +8,6 @@ import app.api.order.SearchOrderResponse;
 import app.api.order.UpdateOrderRequest;
 import app.api.order.UpdateOrderResponse;
 import app.order.domain.Order;
-import core.framework.db.Database;
 import core.framework.db.Repository;
 import core.framework.inject.Inject;
 import core.framework.web.exception.NotFoundException;
@@ -22,14 +21,15 @@ import java.util.stream.Collectors;
  */
 public class OrderService {
     @Inject
-    Database database;
-    @Inject
     Repository<Order> orderRepository;
 
 
     public GetOrderResponse get(Long id) {
-        GetOrderResponse response = database.selectOne("select o.id,o.description,o.created_time,c.email from orders as o ,customers as c where c.id = o.customer_id and o.id=?", GetOrderResponse.class, id)
-            .orElseThrow(() -> new NotFoundException("order not found, id = " + id));
+        Order order = orderRepository.get(id).orElseThrow(() -> new NotFoundException("customer not found,id=" + id));
+        GetOrderResponse response = new GetOrderResponse();
+        response.createdTime = order.createdTime;
+        response.description = order.description;
+        response.customerId = order.customerId;
         return response;
     }
 
