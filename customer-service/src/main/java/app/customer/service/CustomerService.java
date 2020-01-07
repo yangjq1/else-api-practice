@@ -1,6 +1,5 @@
 package app.customer.service;
 
-import app.api.OrderWebService;
 import app.api.customer.CreateCustomerRequest;
 import app.api.customer.CreateCustomerResponse;
 import app.api.customer.GetCustomerResponse;
@@ -8,8 +7,8 @@ import app.api.customer.SearchCustomerRequest;
 import app.api.customer.SearchCustomerResponse;
 import app.api.customer.UpdateCustomerRequest;
 import app.api.customer.UpdateCustomerResponse;
-import app.domain.Customer;
-import app.domain.CustomerStatus;
+import app.customer.domain.Customer;
+import app.customer.domain.CustomerStatus;
 import core.framework.db.Query;
 import core.framework.db.Repository;
 import core.framework.inject.Inject;

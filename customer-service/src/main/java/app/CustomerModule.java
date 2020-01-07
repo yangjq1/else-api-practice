@@ -7,7 +7,7 @@ import app.customer.service.BOCustomerService;
 import app.customer.service.CustomerService;
 import app.customer.web.BOCustomerWebServiceImpl;
 import app.customer.web.CustomerWebServiceImpl;
-import app.domain.Customer;
+import app.customer.domain.Customer;
 import core.framework.module.Module;
 
 /**

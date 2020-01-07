@@ -7,8 +7,7 @@ import app.api.customer.BOSearchCustomerRequest;
 import app.api.customer.BOSearchCustomerResponse;
 import app.api.customer.BOUpdateCustomerRequest;
 import app.api.customer.BOUpdateCustomerResponse;
-import app.domain.Customer;
-import app.domain.CustomerStatus;
+import app.customer.domain.CustomerStatus;
 import core.framework.db.Query;
 import core.framework.db.Repository;
 import core.framework.inject.Inject;
@@ -19,6 +18,7 @@ import core.framework.web.exception.NotFoundException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import app.customer.domain.Customer;
 
 /**
  * @author Else

@@ -1,4 +1,4 @@
-package app.domain;
+package app.customer.domain;
 
 import core.framework.api.validate.NotBlank;
 import core.framework.api.validate.NotNull;
