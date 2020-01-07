@@ -27,8 +27,6 @@ import java.util.stream.Collectors;
 public class CustomerService {
     @Inject
     Repository<Customer> customerRepository;
-    @Inject
-    OrderWebService orderWebService;
 
     public SearchCustomerResponse search(SearchCustomerRequest request) {
         SearchCustomerResponse response = new SearchCustomerResponse();
